@@ -23,5 +23,4 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      id:
       - say-hello
