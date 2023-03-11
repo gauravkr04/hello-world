@@ -47,7 +47,7 @@ jobs:
       - checkout
       - run:
           name : "prints the Environment variables"
-          command: "echo ${MY_NAME}"
+          command: "echo ${MY_ENV_VAR}"
 
 
 # Invoke jobs via workflows
