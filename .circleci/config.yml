@@ -46,8 +46,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name : "prints the Environment variable"
-          command: "echo ${MY_NAME}"
+          name : "prints the Environment variables"
+          command: "echo ${CIRCLE_BRANCH}, echo ${MY_NAME}"
 
 
 # Invoke jobs via workflows
