@@ -42,7 +42,7 @@ jobs:
 
   print-name:
     docker:
-      - image: circleci/node:13.8.0
+      - image: cimg/base:2020.01
     steps:
       - run:
           "echo ${MY_NAME}"
