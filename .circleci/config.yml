@@ -44,8 +44,10 @@ jobs:
     docker:
       - image: cimg/base:2020.01
     steps:
+      - checkout
       - run:
-          "echo ${MY_NAME}"
+          name : "prints the Environment variable"
+          command: "echo ${MY_NAME}"
 
 
 # Invoke jobs via workflows
