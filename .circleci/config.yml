@@ -48,4 +48,8 @@ workflows:
     jobs:
       - print-welcome
       - say-hello
+          requires:
+            - print-welcome
       - print-world
+          requires:
+            - say-hello
