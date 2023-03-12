@@ -22,7 +22,7 @@ jobs:
       - checkout
       - run:
           name: "Print the pipeline id"
-          command: echo <<parameters.input>>  
+          command: echo << parameters.input >>  
 
 
 # Invoke jobs via workflows
