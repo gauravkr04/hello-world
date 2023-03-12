@@ -6,7 +6,7 @@ commands:
   print_pipeline_id:
     description: "A simple command to print circle ci pipeline id on console."
     steps:
-      - run: "${CIRCLE_WORKFLOW_ID}"
+      - run: echo ${CIRCLE_WORKFLOW_ID}
 
 
 # Define a job to be invoked later in a workflow.
