@@ -5,10 +5,8 @@ version: 2.1
 commands:
   print_pipeline_id:
     description: "A simple command to print circle ci pipeline id on console."
-    parameters:
-      input:
-        type: string
-        default: "${CIRCLE_WORKFLOW_ID}"
+    steps:
+      - run: "${CIRCLE_WORKFLOW_ID}"
 
 
 # Define a job to be invoked later in a workflow.
@@ -19,10 +17,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - checkout
-      - run:
-          name: "Print the pipeline id"
-          command: echo << parameters.input >>  
+      - print_pipeline_id 
 
 
 # Invoke jobs via workflows
