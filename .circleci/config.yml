@@ -13,7 +13,7 @@ jobs:
       - checkout
       - run:
           name: "Print and Save the output"
-          command: echo Welcome... > output.txt  
+          command: echo Welcome... > ~/output.txt  
       - persist_to_workspace:
           root: ~/
           paths:
