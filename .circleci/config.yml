@@ -15,7 +15,7 @@ jobs:
           name: "Print and Save the output"
           command: echo Welcome... > output.txt  
       - persist_to_workspace:
-          root: /tmp/workspace
+          root: ~/
           paths:
             - output.txt
 
@@ -24,10 +24,10 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-          at:  /tmp/worksapce
+          at: ~/
       - run:
           name: "The Output file is "
-          command: cat output.txt
+          command: cat ~/output.txt
 
 
 # Invoke jobs via workflows
