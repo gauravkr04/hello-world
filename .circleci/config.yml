@@ -12,20 +12,19 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Print and Savr the output"
+          name: "Print and Save the output"
           command: echo Welcome... > output.txt  
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
-            - target/output.txt
+            - output.txt
 
   print-output-file:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - checkout
       - attach-workspace:
-          at  /tmp/worksapce
+          at:  /tmp/worksapce
       - run:
           name: "The Output file is "
           command: cat output.txt
