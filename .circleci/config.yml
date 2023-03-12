@@ -2,22 +2,20 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-commands:
-  print_pipeline_id:
-    description: "A simple command to print circle ci pipeline id on console."
-    steps:
-      - run: echo ${CIRCLE_WORKFLOW_ID}
-
-
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 # File name change
 jobs:
-  print-pipeline:
+  non-zero-errorcode:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - print_pipeline_id 
+      - run:  "echo return 1"
+
+      - run:  
+          name: Failure
+          command: "echo ROLLBACK"
+          when: on_fail
 
 
 # Invoke jobs via workflows
@@ -25,4 +23,4 @@ jobs:
 workflows:
   print-output-workflow:
     jobs:
-      - print-pipeline
+      - non-zero-errorcode
